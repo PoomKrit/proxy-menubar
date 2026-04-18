@@ -1,18 +1,52 @@
 # Proxy Menubar
 
-Native macOS menubar app that manages a single SSH SOCKS5 proxy tunnel.
-Single Swift file, no Xcode required — builds with `swiftc` directly.
+Native macOS and Windows system tray application that manages a single SSH SOCKS5 proxy tunnel. 
+Lightweight, single-file source implementations — no complex IDE or dependencies required.
 
 ## How It Works
 
-Runs `ssh -D 1080 -N -v <host>` in the background. Polls port 1080 until the tunnel accepts connections, then flips the icon to 🟢. On disconnect or crash, sends a macOS notification and reverts to 🔌.
+Runs `ssh -D 1080 -N -v <host>` in the background. Polls port 1080 until the tunnel accepts connections, then flips the icon to indicate success. On disconnect or crash, it sends a desktop notification and reverts the icon state.
 
 The target SSH host is hardcoded as `"gitlab"` in `ProxyMenubar.swift:11`. Change `proxyHost` there to point at a different host. The host must have a matching entry in `~/.ssh/config` (including any `ProxyCommand` for bastion/SSM hops).
 
-## Requirements
+## Windows Setup (New)
 
-- macOS 11+
-- Xcode Command Line Tools: `xcode-select --install`
+The Windows version is written in C# and runs as a System Tray application.
+
+### Requirements
+
+- Windows 10/11
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) or later
+- OpenSSH (built-in on Windows 10 1803+)
+
+### Build
+
+```batch
+build.bat
+```
+
+Produces `ProxyMenubar.exe` in `bin\Release\net6.0-windows\win-x64\publish\`.
+
+### Usage
+
+1. Run `ProxyMenubar.exe`.
+2. Look for the application in the **System Tray** (bottom right, near the clock).
+3. Right-click the icon to see the menu.
+4. Click **Enable Proxy** to start the tunnel.
+
+### Configuration
+
+Edit `ProxyMenubar.cs` line 19 to change the target host:
+
+```csharp
+private const string ProxyHost = "gitlab"; // ← change this
+```
+
+Then rebuild.
+
+---
+
+## macOS Setup (Existing)
 
 ## Build
 
