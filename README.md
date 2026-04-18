@@ -62,6 +62,27 @@ Configure your browser or system proxy to:
 
 Test: `curl --socks5 localhost:1080 https://example.com`
 
+### Browser Setup (Proxy SwitchyOmega)
+
+For a better experience, it is recommended to use [Proxy SwitchyOmega v3](https://chromewebstore.google.com/detail/proxy-switchyomega-v3/hihblcmlaaademjlakdpicchbjnnnkbo) to manage proxy switching automatically.
+
+#### Setup Instructions:
+
+1. **Create Profile**: Create a new profile with any name (e.g., `Proxy-Tunnel`).<br>
+   ![Create Profile](PNG/1.png)
+
+2. **Configure Proxy**: Set the protocol to **SOCKS5**, server to `127.0.0.1`, and port to `1080`.<br>
+   ![Configure Proxy](PNG/2.png)
+
+3. **Auto Switch Rules**: Go to the **"auto switch"** profile:
+   - Set **Condition type** as **"Host Wildcard"**.
+   - Set **Condition details** as `*.<your-preferred-domain>`.
+   - Select the previously created profile as the result.<br>
+   ![Auto Switch Rules](PNG/3.png)
+
+4. **Apply Changes**: Click **"Apply Changes"** in the actions section.<br>
+   ![Apply Changes](PNG/4.png)
+
 ## Configuration
 
 Edit `ProxyMenubar.swift` line 11 to change the target host:

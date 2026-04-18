@@ -1,4 +1,5 @@
 .DS_Store
 ProxyMenubar
+ProxyMenubar.app
 *.o
 *.d
