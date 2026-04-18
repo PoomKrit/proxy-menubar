@@ -27,6 +27,14 @@ build.bat
 
 Produces `ProxyMenubar.exe` in `bin\Release\net6.0-windows\win-x64\publish\`.
 
+### Uninstall
+
+```batch
+uninstall.bat
+```
+
+Stops the running application and cleans up any active SSH tunnels.
+
 ### Usage
 
 1. Run `ProxyMenubar.exe`.
