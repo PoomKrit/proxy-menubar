@@ -77,6 +77,13 @@ open /Applications/ProxyMenubar.app
 
 The 🔌 icon appears in the menubar. No terminal needed after that.
 
+## Uninstall
+
+```bash
+bash uninstall.sh
+rm -rf /Applications/ProxyMenubar.app
+```
+
 ## Usage
 
 | Menu Item | Action |
@@ -160,10 +167,3 @@ cp -r ProxyMenubar.app /Applications/
 ```
 
 Kill the old instance first or just Quit from the menubar.
-
-## Uninstall
-
-```bash
-bash uninstall.sh
-rm -rf /Applications/ProxyMenubar.app
-```
